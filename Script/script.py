@@ -11,7 +11,7 @@ mean_execution_times = []
 for input_file in input_files:
     execution_times = []
     for i in range(num_runs):
-        process = subprocess.Popen(["./mergesort", input_file], stdout=subprocess.PIPE)
+        process = subprocess.Popen(["./CodigoC/mergesort", input_file], stdout=subprocess.PIPE)
         output, error = process.communicate()
         execution_time = float(output.decode("utf-8"))
         execution_times.append(execution_time)
