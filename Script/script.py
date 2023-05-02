@@ -19,7 +19,7 @@ for input_file in input_files:
     mean_execution_time = statistics.mean(execution_times)
     mean_execution_times.append(mean_execution_time)
 
-# Plotar o gráfico de barras
+# Plotar o gráfico de linhas
 input_files_names = [os.path.basename(file) for file in input_files]
 plt.plot(input_files_names, mean_execution_times)
 plt.xlabel("Arquivo de entrada")
