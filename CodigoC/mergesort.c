@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 
-void mergeSort(int arr[], int l, int r);
+void mergeSort(long  int arr[], long  int l, long  int r);
 
 // Função de mesclagem usada pela função mergeSort()
-void merge(int arr[], int l, int m, int r) {
-    int i, j, k;
-    int n1 = m - l + 1;
-    int n2 = r - m;
+void merge(long  int arr[], long  int l, long  int m, long int r) {
+    long  int i, j, k;
+    long  int n1 = m - l + 1;
+    long  int n2 = r - m;
 
     // Cria arrays temporários
-    int L[n1], R[n2];
+    long int L[n1], R[n2];
     // Copia os dados para os arrays temporários L[] e R[]
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
@@ -49,9 +49,9 @@ while (j < n2) {
 }
 }
 
-void mergeSort(int arr[], int l, int r) {
+void mergeSort(long  int arr[], long int l, long int r) {
     if (l < r) {
-        int m = l + (r - l) / 2; // Calcula o índice do elemento central
+        long int m = l + (r - l) / 2; // Calcula o índice do elemento central
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
         merge(arr, l, m, r);
@@ -76,11 +76,11 @@ int main(int argc, char *argv[]) {
     fscanf(input_file, "%d", &num_elements);
 
     // Lê os elementos do arquivo de entrada e armazena em um vetor
-    int *elements = malloc(num_elements * sizeof(int));
-    for (int i = 0; i < num_elements; i++) {
+    long  int *elements = malloc(num_elements * sizeof(long int));
+    for (long  int i = 0; i < num_elements; i++) {
         fscanf(input_file, "%d", &elements[i]);
     }
-
+    
     // Fecha o arquivo de entrada
     fclose(input_file);
 
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
     double elapsed_time_ms = (double)(end_time - start_time) / (CLOCKS_PER_SEC / 1000);
 
     // Imprime o tempo de execução do Merge Sort em milissegundos
-    printf(" %.2f \n", elapsed_time_ms);
+    printf("%.4lf", elapsed_time_ms);
 
     // Libera a memória alocada
     free(elements);
